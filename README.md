@@ -11,4 +11,4 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 <img width="468" alt="image" src="https://github.com/user-attachments/assets/c508c017-8a04-457a-8c90-87b6a5e69b3f">
 <img width="300" alt="image" src="https://github.com/user-attachments/assets/f523efd9-48f5-4b9f-b141-f61558c1462b">
 
-# Easy and Simple! Enjoy!
+# Drag & Drop! Easy & Simple! Enjoy!
