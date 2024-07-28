@@ -1,0 +1,117 @@
+<div>
+<div class="header">
+<!-- <form [formGroup]="form" (ngSubmit)="onSubmit()" class="form-search"> -->
+    <span class="today">{{ formattedDate }}</span>
+    <!-- <mat-form-field class="search-field" color="accent">
+        <mat-label >filter tasks</mat-label>
+        <input matInput formControlName="textInput">
+    </mat-form-field> -->
+     
+    <span *ngFor="let item of links">
+      <a [href]="item.url" target="_blank">{{item.text}}</a>
+    </span>
+<!-- </form> -->
+ </div>
+<mat-divider></mat-divider>
+<!-- Drag and Drop LIST GROUP -->
+<div cdkDropListGroup>
+    <!-- TODO LIST -->
+    <div class="example-container">
+      <div
+        cdkDropList
+        [cdkDropListData]="todo" 
+        class="example-list"
+        (cdkDropListDropped)="drop($event)">
+
+        
+
+        <!-- Add button -->
+        <span class="block-title-text">Todo</span>
+        <section class="block-title">
+            <mat-icon aria-hidden="false" aria-label="add icon" fontIcon="add" color="accent"
+              class="block-title-add-button" (click)="openDialog()">
+            </mat-icon>
+        </section> 
+        <mat-divider></mat-divider>
+        
+
+        <div class="example-box" [style]="item.color" *ngFor="let item of todo" cdkDrag [cdkDragStartDelay]="dragdelay" >
+          <section class="example-section">
+            <mat-checkbox [checked]="item.checked" (click)="clickTodoChecked(item.checked, item.id)">
+              {{textAreaTrim(item.textArea)}}
+            </mat-checkbox>
+          </section>
+
+          <section>
+            <mat-icon class="todo-icon-edit"  fontIcon="edit" (click)="openDialogEdit(item, 'local_todos')"></mat-icon>
+            <!-- --<mat-icon aria-hidden="false" aria-label="todo delete icon" fontIcon="delete" class="todo-icon-delete" (click)="deleteOneItemInTodoList(item.id)"></mat-icon>-- -->
+          </section>
+          
+
+         
+        
+          
+        </div>
+      </div>
+    </div>
+
+
+    <!-- DOING LIST -->
+    <div class="example-container">
+        <div
+          cdkDropList
+          [cdkDropListData]="doing" 
+          class="example-list"
+          (cdkDropListDropped)="drop($event)">
+          
+          <span class="block-title-text">Doing</span>
+            <section class="block-title">
+                <mat-icon aria-hidden="false" aria-label="add icon" fontIcon="add" color="accent"
+                  class="block-title-add-button" (click)="openDialog2()">
+                </mat-icon>
+            </section> 
+            <mat-divider></mat-divider>
+
+            <div class="example-box" [style]="item.color" *ngFor="let item of doing" cdkDrag [cdkDragStartDelay]="dragdelay" >
+                  
+                  <section class="example-section">
+                    <mat-checkbox [checked]="item.checked" (click)="clickDoingChecked(item.checked, item.id)">{{textAreaTrim(item.textArea)}}</mat-checkbox>
+                  </section>
+                  <section>
+                    <mat-icon aria-hidden="false" aria-label="doing edit icon" fontIcon="edit" class="todo-icon-edit" (click)="openDialogEdit(item, 'local_doings')"></mat-icon>
+                    <!-- <mat-icon aria-hidden="false" aria-label="doing delete icon" fontIcon="delete" class="todo-icon-delete"  (click)="deleteOneItemInDoingList(item.id)"></mat-icon> -->
+                 </section>
+            </div>
+        </div>
+      </div>
+  
+      <!-- DONE LIST -->
+    <div class="example-container">
+      
+      <div
+        cdkDropList
+        [cdkDropListData]="done"
+        class="example-list"
+        (cdkDropListDropped)="drop($event)">
+        <!-- Delete all done BUTTON -->
+        <span class="block-title-text">Done</span>
+        <section class="block-title">
+          <mat-icon aria-hidden="false" aria-label="de icon" fontIcon="delete" class="block-title-delete-button" (click)="deleteAllDone()"></mat-icon>
+      </section>
+        <mat-divider></mat-divider>
+
+        <div class="example-box" [style]="item.color" *ngFor="let item of done" cdkDrag [cdkDragStartDelay]="dragdelay">
+            <section class="example-section">
+                <mat-checkbox class="todo-margin-done" disabled="true" checked="true" >{{textAreaTrim(item.textArea)}}</mat-checkbox>
+            </section>
+            <section >
+                <!-- <mat-icon aria-hidden="false" aria-label="done edit icon" fontIcon="edit" class="todo-icon-edit" (click)="openDialogEdit(item, 'local_dones')"></mat-icon> -->
+                <mat-icon aria-hidden="false" aria-label="done delete icon" fontIcon="delete" class="todo-icon-delete" (click)="deleteOneItemInDoneList(item.id)"></mat-icon>
+            </section>
+               
+        </div>
+      </div>
+    </div>
+  </div>
+  
+</div>

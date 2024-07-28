@@ -1,0 +1,27 @@
+
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+<mat-dialog-content class="example-form">
+
+    <mat-form-field class="area-full-width" appearance="fill">
+        <mat-label>What do you want to do?</mat-label>
+        <textarea class="mdc-text-field-x" matInput formControlName="textArea" rows="5"></textarea>
+        
+        <!-- <mat-radio-group formControlName="color">
+            <mat-radio-button value="background-color: #f3caca"><span class="color1">Red</span></mat-radio-button>
+            <mat-radio-button value="background-color: #c1edc3"><span class="color2">Green</span></mat-radio-button>
+            <mat-radio-button value="background-color: #eff2c9"><span class="color3">Yellow</span></mat-radio-button>
+        </mat-radio-group> -->
+        <mat-chip-listbox aria-label="Fish selection" formControlName="color">
+            <mat-chip-option value="background-color: #f3caca" color="#f3caca"><span class="color1">Red</span></mat-chip-option>
+            <mat-chip-option value="background-color: #c1edc3" color="#c1edc3"><span class="color2">Green</span></mat-chip-option>
+            <mat-chip-option value="background-color: #eff2c9" color="#eff2c9"><span class="color3">Yellow</span></mat-chip-option>
+          </mat-chip-listbox>
+    </mat-form-field>
+    
+    <mat-dialog-actions align="end">
+        <button mat-button mat-dialog-close>Cancel</button>
+        <button type="submit" mat-button color="accent" [mat-dialog-close]="true" cdkFocusInitial>SAVE</button>
+      </mat-dialog-actions>
+</mat-dialog-content>
+
+</form>

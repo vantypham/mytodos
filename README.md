@@ -1,2 +1,4 @@
-# mytodos
-A simple Todo list application for daily task management written by using Angular 16
+# Mytodos
+A simple Todo list
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.14.
+
